@@ -1,0 +1,118 @@
+html {
+  background-color: #fff2e6;
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+.recipe-component {
+  max-width: 40%;
+  margin: auto;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+
+  &__introduction {
+    .image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+
+      &--rounded {
+        border-radius: 10px;
+      }
+    }
+
+    .text {
+      &-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    .prepare-list {
+      padding: 1.5rem;
+      background-color: #ffe6f2;
+      border-radius: 15px;
+
+      .title {
+        &--red {
+          color: #80003e;
+        }
+        &--bold {
+          font-weight: 800;
+        }
+      }
+
+      .list-prepare {
+        padding-left: 1rem;
+
+        &__item {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__ingredient {
+    .text {
+      &--yellow {
+        color: #b37700;
+      }
+    }
+
+    .divider {
+      opacity: 0.2;
+      margin: 2rem 0;
+    }
+  }
+
+  &__instruction {
+    .text {
+      &--yellow {
+        color: #b37700;
+      }
+    }
+
+    .list-instructions {
+      &__item {
+        padding-left: 1.5rem;
+        &::marker {
+          color: #b37700;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  &__nutrition {
+    .text {
+      &--yellow {
+        color: #b37700;
+      }
+    }
+
+    .nutrition-table {
+      border-collapse: collapse;
+      width: 100%;
+
+      &__item {
+        border-bottom: 1px solid #dddddd;
+
+        > td {
+          text-align: left;
+          padding: 1rem 2rem;
+        }
+        > th {
+          color: #b37700;
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media only screen and (max-width: 768px) {
+  .recipe-component {
+    max-width: 100%;
+  }
+}

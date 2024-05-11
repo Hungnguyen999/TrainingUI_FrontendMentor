@@ -1,0 +1,189 @@
+.newsletter-component {
+  display: inline-flex;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 30px;
+  text-align: left;
+
+  &__form {
+    flex: 40%;
+    padding: 0 5rem;
+    .text {
+      &-title {
+        font-size: 4rem;
+      }
+      &-intro {
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+    }
+    .list-benefit {
+      list-style: none;
+      padding: 0;
+
+      &__item {
+        display: flex;
+        padding: 0.5rem;
+        align-items: center;
+
+        .text-desc {
+          margin-left: 1.5rem;
+          font-weight: bold;
+        }
+
+        .icon {
+          width: 2.5rem;
+          height: 2.5rem;
+          filter: invert(43%) sepia(98%) saturate(1269%) hue-rotate(360deg)
+            brightness(96%) contrast(91%);
+        }
+      }
+    }
+    .form-email {
+      display: grid;
+      row-gap: 1rem;
+      margin-top: 3rem;
+      .text {
+        display: inline-flex;
+        justify-content: space-between;
+        &__label {
+          font-size: small;
+          font-weight: 700;
+        }
+        &__message {
+          color: red;
+          font-size: small;
+          font-weight: 700;
+        }
+      }
+
+      &__input {
+        height: 50px;
+        border-radius: 7px;
+        border: solid 1px #dddd;
+        text-indent: 1.5rem;
+        font-size: medium;
+        &:invalid {
+          background-color: #ffe8e6;
+          border: none;
+          outline: 1px solid red;
+          border-radius: 5px;
+        }
+      }
+      &__button {
+        height: 50px;
+        border-radius: 7px;
+        border: none;
+        background: #00004d;
+        color: white;
+        font-size: large;
+        font-weight: 700;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__image {
+    flex: 35%;
+
+    .image {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 1.5rem;
+    }
+  }
+}
+.newsletter-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: 1000; /* Ensure the overlay is on top of other elements */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Add transition for opacity */
+  &.open {
+    display: block;
+    opacity: 1; /* When the overlay is open, set opacity to 1 */
+  }
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    max-width: 300px;
+    width: 100%;
+    display: grid;
+    gap: 1.5rem;
+
+    .overlay {
+      &-header {
+        display: grid;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon {
+          filter: invert(43%) sepia(98%) saturate(1269%) hue-rotate(360deg)
+            brightness(96%) contrast(91%);
+        }
+
+        .text-title {
+          padding: 0;
+          text-align: left;
+          margin-bottom: 0;
+        }
+      }
+      &-body {
+        text-align: left;
+        font-size: small;
+      }
+    }
+
+    .close-btn {
+      height: 50px;
+      width: 100%;
+      border-radius: 7px;
+      border: none;
+      background: #00004d;
+      color: white;
+      font-size: small;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
+
+// Responsive
+@media only screen and (max-width: 768px) {
+  .newsletter-component {
+    display: grid;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    &__image {
+      grid-row: 1;
+      max-width: 100%;
+    }
+    &__form {
+      grid-row: 2;
+      padding: 0 1.5rem 3rem 1.5rem;
+      .text-title {
+        font-size: 3rem;
+      }
+    }
+  }
+}
