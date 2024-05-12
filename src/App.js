@@ -3,6 +3,7 @@ import { Suspense, startTransition, useState } from 'react';
 import './App.css';
 import { RecipePage } from './components/RecipePage/RecipePage';
 import Newsletter from './components/Newsletter/Newsletter.js';
+import { BodyCalculator } from './components/BodyCalculatorPage/BodyCalculator.js';
 import { Layout } from './Layout';
 import { Home } from './components/HomePage/Home.js'
 function App() {
@@ -28,7 +29,8 @@ function App() {
         return content = (<Newsletter />)
       default:
         content = (
-          <Home navigate={navigate} />
+          // <Home navigate={navigate} />
+          <BodyCalculator />
         );
 
     }
