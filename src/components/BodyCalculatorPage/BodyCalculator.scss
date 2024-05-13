@@ -8,12 +8,12 @@ body {
     .calculate {
       &-image {
         width: 100%;
-        height: 50%;
+        height: 80vh;
         object-fit: cover;
       }
       &-content {
         position: absolute;
-        top: 30%;
+        top: 20%;
         min-width: 100%;
 
         .paragraph {
@@ -33,7 +33,7 @@ body {
               font-weight: 600;
             }
             &-desc {
-              color: #737373;
+              color: #90979f;
             }
           }
         }
@@ -52,29 +52,59 @@ body {
             &__title {
               margin: 0;
             }
+            &__checkbox {
+              display: flex;
+              .male,
+              .female {
+                flex: 50%;
+                display: flex;
+                #metric,
+                #imperial {
+                  width: 25px;
+                  height: 25px;
+                  margin: 0;
+                  border-radius: 50%;
+                  border: 2px solid black;
+                  display: inline-block;
+                  cursor: pointer;
+                  position: relative;
+                }
+                > label {
+                  align-self: center;
+                  margin-left: 0.7rem;
+                  font-weight: 700;
+                }
+              }
+            }
             &__inputs {
               display: flex;
               justify-content: space-between;
               .input {
-                &-height {
-                  display: grid;
-                  width: 47%;
-
-                  #height {
-                    height: 50px;
-                    background: white;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 0.5rem;
-                  }
-                }
+                &-height,
                 &-weight {
                   display: grid;
                   width: 47%;
+
+                  .title {
+                    color: #90979f;
+                    margin-bottom: 5px;
+                  }
+                  #height,
                   #weight {
                     height: 50px;
+                    width: 90%;
                     background: white;
                     border: 1px solid #e0e0e0;
                     border-radius: 0.5rem;
+                    font-size: 1.5rem;
+                    padding: 0 1rem;
+
+                    &::placeholder {
+                      color: #6583ff;
+                      font-size: 1.5rem;
+                      float: right;
+                      font-weight: 600;
+                    }
                   }
                 }
               }
@@ -130,6 +160,7 @@ body {
           }
           &-content {
             font-size: 1rem;
+            color: #90979f;
           }
         }
       }
@@ -137,12 +168,364 @@ body {
   }
 
   &__ibm-include {
-    display: flex;
-    text-align: left;
-    max-width: 80%;
-    margin: auto;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f8fcff;
+    width: 98%;
+    border-radius: 0 20px 20px 0px;
+    margin: 2.5rem 0rem;
+
+    .container {
+      display: flex;
+      text-align: left;
+      max-width: 80%;
+      margin: auto;
+      padding: 3rem 0rem;
+
+      .ibm-include {
+        &__eating,
+        &__excercise,
+        &__sleep {
+          padding-right: 1.5rem;
+          .icon-eat {
+            background: #ffdaec;
+            border-radius: 100%;
+            fill: #fc599f;
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+          }
+          .icon-exercise {
+            background: #f9eee3;
+            border-radius: 100%;
+            fill: #f2a25c;
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+          }
+          .icon-sleep {
+            background: #d7f5f5;
+            border-radius: 100%;
+            fill: #5ec9c4;
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+          }
+          .eating-title,
+          .exercise-title,
+          .sleep-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+          }
+          .eating-content,
+          .exercise-content,
+          .sleep-content {
+            color: #90979f;
+          }
+        }
+      }
+    }
   }
 
   &__ibm-limit {
+    display: grid;
+    margin: auto;
+    max-width: 80%;
+
+    .ibm-limit {
+      display: flex;
+      &__desc {
+        display: flex;
+        // flex: 100%;
+        text-align: left;
+        .paragraph {
+          flex: 20%;
+          .desc-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+          }
+          .desc-content {
+            color: #90979f;
+          }
+        }
+        .container {
+          flex-basis: calc(50% - 5px); /* Two items per row with 5px gap */
+          margin-bottom: 10px;
+          .info {
+            &__gender {
+              max-width: 300px;
+              margin: auto;
+              border-radius: 20px;
+              background-color: white;
+              box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+              padding: 1.5rem;
+
+              .header {
+                display: flex;
+
+                .icon-gender {
+                  width: 35px;
+                  height: 35px;
+                  fill: #d65c3c;
+                  font-weight: 700;
+                }
+                .gender-title {
+                  margin: 0 0 0 1.2rem;
+                  align-self: center;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .gender-content {
+                color: #90979f;
+              }
+            }
+          }
+        }
+      }
+      &__info {
+        flex: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        list-style: none;
+        padding: 0;
+        text-align: left;
+
+        .container {
+          flex-basis: calc(50% - 40px); /* Two items per row with 5px gap */
+          margin: 10px;
+          display: grid;
+          &:nth-child(1) {
+            flex-basis: calc(33% - 5px);
+            justify-content: right;
+          }
+          &:nth-child(2) {
+            flex-basis: calc(33% - 5px);
+            justify-content: left;
+          }
+
+          &:nth-child(3) {
+            justify-content: right;
+          }
+          &:nth-child(4) {
+            justify-content: left;
+          }
+          .info {
+            &__age {
+              max-width: 300px;
+              margin: auto;
+              border-radius: 20px;
+              background-color: white;
+              box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+              padding: 1.5rem;
+              .header {
+                display: flex;
+                .icon-age {
+                  width: 35px;
+                  height: 35px;
+                  fill: #abffff;
+                }
+                .age-title {
+                  margin: 0 0 0 1.2rem;
+                  align-self: center;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .age-content {
+                color: #90979f;
+              }
+            }
+            &__muscle {
+              max-width: 300px;
+              margin: auto;
+              border-radius: 20px;
+              background-color: white;
+              box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+              padding: 1.5rem;
+              .header {
+                display: flex;
+                .icon-muscle {
+                  width: 35px;
+                  height: 35px;
+                  fill: #9f73ee;
+                }
+                .muscle-title {
+                  margin: 0 0 0 1.2rem;
+                  align-self: center;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .muscle-content {
+                color: #90979f;
+              }
+            }
+            &__pregnancy {
+              max-width: 300px;
+              margin: auto;
+              border-radius: 20px;
+              background-color: white;
+              box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+              padding: 1.5rem;
+              .header {
+                display: flex;
+                .icon-pregnancy {
+                  width: 35px;
+                  height: 35px;
+                  fill: #f3d454;
+                }
+                .pregnancy-title {
+                  margin: 0 0 0 1.2rem;
+                  align-self: center;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .pregnancy-content {
+                color: #90979f;
+              }
+            }
+            &__race {
+              max-width: 300px;
+              margin: auto;
+              border-radius: 20px;
+              background-color: white;
+              box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+              padding: 1.5rem;
+              .header {
+                display: flex;
+                .icon-race {
+                  width: 35px;
+                  height: 35px;
+                }
+                .race-title {
+                  margin: 0 0 0 1.2rem;
+                  align-self: center;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .race-content {
+                color: #90979f;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media only screen and (max-width: 1024px) {
+  .body-calculator {
+    &__calculate {
+      .calculate {
+        &-image {
+          height: 50vh;
+          object-fit: unset;
+        }
+        &-content {
+          top: 20%;
+
+          .paragraph {
+            .calculate-content {
+              &__intro {
+                .text-title {
+                  font-size: 2.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .body-calculator {
+    &__calculate {
+      .calculate {
+        &-image {
+          height: 100vh;
+          object-fit: unset;
+        }
+        &-content {
+          // position: unset;
+          top: 0;
+          .paragraph {
+            display: grid;
+          }
+
+          &__intro {
+            width: 100%;
+            text-align: center;
+          }
+          &__form {
+            width: 100%;
+            padding: 2rem 0;
+            height: 350px;
+
+            .form {
+              &__title,
+              &__checkbox,
+              &__inputs {
+                padding: 0 1.5rem;
+              }
+
+              &__welcome {
+                margin: 0 1.5rem;
+              }
+
+              &__inputs {
+                .input-height,
+                .input-weight {
+                  #height,
+                  #weight {
+                    width: 70%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__ibm-intro {
+      display: grid;
+      .intro {
+        &-image {
+          width: 100%;
+        }
+        &-desc {
+          width: 100%;
+          .desc {
+            &-title {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+    &__ibm-include {
+      .container {
+        display: grid;
+      }
+    }
+    &__ibm-limit {
+      .ibm-limit {
+        &__desc,
+        &__info {
+          display: grid;
+          justify-content: center;
+          .container {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
   }
 }
